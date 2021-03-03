@@ -15,7 +15,7 @@ public class Main {
 
         point p1 = info.createPoint();
         channel c1 = p1.createChannel();
-        p1.execute("Negative");
+        p1.execute("Abbreviations");
         c1.write("ghsvhc GGHH fghjkfgh ING VFGH fghjklkjhgffgh");
         List<String> res= (List<String>)c1.readObject();
         for(String str: res)
