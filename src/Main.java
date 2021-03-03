@@ -26,7 +26,7 @@ public class Main {
                 p.execute("Negative");
                 c.write(img);
                 BufferedImage result=(BufferedImage) c.readObject();
-                File file = new File("src/com/uni/image_negative"+i+".jpg");
+                File file = new File("negative_images/negative"+i+".jpg");
                 ImageIO.write( result, "jpg", file);
 
             }
