@@ -42,15 +42,9 @@ public class Vernam implements AM {
             return null;
         }
         String key = "";
-        SecureRandom secureRandom = new SecureRandom();
-        try {
-            secureRandom = SecureRandom.getInstance("SECURERAND");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
         //Builds the key.
         for(int i = 0; i < length; i++){
-            int randomValue = secureRandom.nextInt(26);
+            int randomValue = ((int) Math.random())%26;
             key += encryptionArr[randomValue];
         }
         return key;
