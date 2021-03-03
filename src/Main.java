@@ -16,7 +16,7 @@ public class Main {
 
         long startTime = System.nanoTime();
 
-        File dir = new File("original_images");
+        File dir = new File("images");
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
             for (int i=0;i<directoryListing.length;++i) {
@@ -26,7 +26,7 @@ public class Main {
                 p.execute("Negative");
                 c.write(img);
                 BufferedImage result=(BufferedImage) c.readObject();
-                File file = new File("negative_images/negative"+i+".jpg");
+                File file = new File("images/negative"+i+".jpg");
                 ImageIO.write( result, "jpg", file);
 
             }
