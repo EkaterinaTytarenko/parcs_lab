@@ -1,19 +1,19 @@
 all: run
 
 clean:
-	rm -f out/Main.jar out/Negative.jar
+	rm -f out/Main.jar out/Abbreviations.jar
 
-out/Main.jar: out/parcs.jar src/Main.java src/Negative.java
-	@javac -cp out/parcs.jar src/Main.java src/Negative.java
-	@jar cf out/Main.jar -C src Main.class -C src Negative.class
-	@rm -f src/Main.class src/Negative.class
+out/Main.jar: out/parcs.jar src/Main.java src/Abbreviations.java
+	@javac -cp out/parcs.jar src/Main.java src/Abbreviations.java
+	@jar cf out/Main.jar -C src Main.class -C src Abbreviations.class
+	@rm -f src/Main.class src/Abbreviations.class
 
-out/Negative.jar: out/parcs.jar src/Negative.java
-	@javac -cp out/parcs.jar src/Negative.java
-	@jar cf out/Negative.jar -C src Negative.class
-	@rm -f src/Negative.class
+out/Abbreviations.jar: out/parcs.jar src/Abbreviations.java
+	@javac -cp out/parcs.jar src/Abbreviations.java
+	@jar cf out/Abbreviations.jar -C src Abbreviations.class
+	@rm -f src/Abbreviations.class
 
-build: out/Main.jar out/Negative.jar
+build: out/Main.jar out/Abbreviations.jar
 
-run: out/Main.jar out/Negative.jar
+run: out/Main.jar out/Abbreviations.jar
 	@cd out && java -cp 'parcs.jar:Main.jar' Main

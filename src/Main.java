@@ -1,9 +1,7 @@
 import parcs.*;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 
 public class Main {
@@ -11,28 +9,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         task curtask = new task();
-        curtask.addJarFile("Negative.jar");
+        curtask.addJarFile("Abbreviations.jar");
         AMInfo info = new AMInfo(curtask, null);
         long startTime = System.nanoTime();
 
-        File dir = new File("images");
-        File[] directoryListing = dir.listFiles();
-
-        if (directoryListing != null) {
-            for (int i=0;i<directoryListing.length;++i) {
-                File img=directoryListing[i];
-                point p = info.createPoint();
-                channel c = p.createChannel();
-                p.execute("Negative");
-                c.write(img);
-                BufferedImage result=(BufferedImage) c.readObject();
-                File file = new File("images/negative"+i+".jpg");
-                System.out.println(result);
-                System.out.println(file);
-                ImageIO.write( result, "jpg", file);
-
-            }
-        }
+        point p1 = info.createPoint();
+        channel c1 = p1.createChannel();
+        p1.execute("Negative");
+        c1.write("ghsvhc GGHH fghjkfgh ING VFGH fghjklkjhgffgh");
+        List<String> res= (List<String>)c1.readObject();
+        for(String str: res)
+            System.out.println(str);
 
         double estimatedTime = (double) (System.nanoTime() - startTime) / 1000000000;
         System.out.println("Total time: " + estimatedTime);
