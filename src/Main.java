@@ -26,7 +26,7 @@ public class Main {
         long startTime = System.nanoTime();
 
         point p = info.createPoint();
-        channel c = p1.createChannel();
+        channel c = p.createChannel();
        
         p.execute("Vernam");
         c.write(text1+text2+text3+text4);
